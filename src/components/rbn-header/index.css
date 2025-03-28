@@ -1,0 +1,14 @@
+.fc-custom-header {
+  display: flex;
+  justify-content: space-between;
+
+  & .fc-custom-header--logo {
+    margin-top: 32px;
+    margin-left: 32px;
+  }
+
+  & .fc-custom-header--menu {
+    margin-top: 43px;
+    margin-right: 24px;
+  }
+}
