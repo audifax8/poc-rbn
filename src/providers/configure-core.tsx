@@ -2,7 +2,7 @@ import { useEffect, createContext, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLoaded } from '../store/configure-core';
 import { ConfigureService } from '../interfaces/configure-core';
-import { setName } from '../store/product';
+import { setProduct } from '../store/product';
 import { IConfigureService } from '../interfaces/common';
 import { useSearchParams } from 'react-router-dom';
 import { setFcParams } from '../store/fc-params';
@@ -63,9 +63,9 @@ export function ConfigureCoreProvider(props: any) {
               return;
             }
             const _cService = new ConfigureService(configureCore);
-            const productName = _cService.getProductName();
+            const product = _cService.getProduct();
             dispatch(setLoaded(true));
-            dispatch(setName(productName));
+            dispatch(setProduct(product));
             dispatch(setFcParams(mergedParams));
             setConfigureCoreService(_cService);
           }

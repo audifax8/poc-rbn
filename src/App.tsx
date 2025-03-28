@@ -4,19 +4,18 @@ import { Provider } from 'react-redux'
 import { ConfigureCoreProvider } from './providers/configure-core';
 
 import store from './store'
-import { BrowserRouter } from 'react-router-dom';
 
 import ConfigureWrapper from './components/configure-wrapper';
+import { PreloadScripts } from './hooks/preload';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Provider store={store}>
-        <ConfigureCoreProvider>
-          <ConfigureWrapper></ConfigureWrapper>
-        </ConfigureCoreProvider>
-      </Provider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <PreloadScripts />
+      <ConfigureCoreProvider>
+        <ConfigureWrapper />
+      </ConfigureCoreProvider>
+    </Provider>
   );
 }
 
