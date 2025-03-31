@@ -1,5 +1,36 @@
 .configure-wrapper {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  grid-template-areas: 
+    '. fc-header'
+    'fc-model fc-menu'
+    '. fc-footer';
+
+  @media (max-width: 700px) { 
+    grid-template-columns: 1fr;
+
+    grid-template-areas: 
+      'fc-header'
+      'fc-model'
+      'fc-footer';
+  }
+}
+
+.configure-wrapper .fc-header {
+  grid-area: fc-header;
+}
+
+.configure-wrapper .fc-model {
+  grid-area: fc-model;
+}
+
+.configure-wrapper .fc-menu {
+  grid-area: fc-menu;
+}
+
+.configure-wrapper .fc-footer {
+  grid-area: fc-footer;
 }
 

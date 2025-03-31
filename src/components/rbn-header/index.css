@@ -1,14 +1,19 @@
 .fc-custom-header {
+  position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 7vh;
+
+  @media (max-width: 700px) { 
+    height: 5vh;
+  }
 
   & .fc-custom-header--logo {
-    margin-top: 32px;
-    margin-left: 32px;
+    padding-left: 32px;
   }
 
   & .fc-custom-header--menu {
-    margin-top: 43px;
-    margin-right: 24px;
+    padding-right: 24px;
   }
 }
