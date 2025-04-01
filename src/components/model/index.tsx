@@ -1,9 +1,16 @@
+import { useSelector } from 'react-redux';
+import { isMobile } from 'react-device-detect';
+
 import './index.css';
 
 export default function Model() {
+  const name = useSelector((state: any) => state?.product?.name);
   return (
     <section className='fc-model'>
-      <pre>model</pre>
+      {name && <img className='' src={`/img/${isMobile ? 'mobile' : 'desktop'}.png`}/>}
+      {!name && <div className='fc-skeleton'>
+        <img className='fc-skeleton' src={`/img/${isMobile ? 'mobile' : 'desktop'}.png`}/>
+      </div>}
     </section>
   );
 }

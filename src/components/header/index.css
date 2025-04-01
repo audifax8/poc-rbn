@@ -2,4 +2,15 @@
   display: flex;
   justify-content: space-between;
   height: 5vh;
+  align-items: center;
+
+  & .fc-header--name {
+    color: var(--dark);
+    font-family: Oswald;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%; /* 38.4px */
+    text-transform: uppercase;
+  }
 }

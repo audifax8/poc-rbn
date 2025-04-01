@@ -4,6 +4,7 @@
   --dark-gray: '#666666';
   --light: '#ffffff';
   --medium-gray: '#e2e2e5';
+  --skeleton: hsl(200, 20%, 70%);
 }
 
 body {
@@ -19,4 +20,24 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.fc-skeleton {
+  animation: skeleton-loader 1s linear infinite alternate;
+}
+
+.fc-skeleton-text {
+  width: 10em;
+  height: .5em;
+  border-radius: .2rem;
+}
+
+@keyframes skeleton-loader {
+  0% {
+    background-color: var(--skeleton);
+  }
+
+  100% {
+    background-color: var(--skeleton);
+  }
 }
