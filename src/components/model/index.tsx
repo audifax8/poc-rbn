@@ -14,3 +14,5 @@ export default function Model() {
     </section>
   );
 }
+//<img className='fc-skeleton' src='/img/sk.png'/>
+//<img className='fc-skeleton' src={`/img/${isMobile ? 'mobile' : 'desktop'}.png`}/>

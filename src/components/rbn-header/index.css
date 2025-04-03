@@ -1,4 +1,4 @@
-.fc-custom-header {
+.rbn-header {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -9,11 +9,11 @@
     height: 5vh;
   }
 
-  & .fc-custom-header--logo {
+  & .rbn-header--logo {
     padding-left: 32px;
   }
 
-  & .fc-custom-header--menu {
+  & .rbn-header--menu {
     padding-right: 24px;
   }
 }

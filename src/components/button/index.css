@@ -1,0 +1,19 @@
+.fc-button {
+  display: flex;
+  height: 32px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 48px;
+  background: var(--dark);
+  margin-right: 24px;
+
+  .fc-button--label {
+    color: var(--font-light);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}

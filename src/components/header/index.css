@@ -12,5 +12,14 @@
     font-weight: 500;
     line-height: 160%; /* 38.4px */
     text-transform: uppercase;
+    padding-right: 10px;
+
+    @media (max-width: 700px) { 
+      padding: 0 16px;
+    }
+  }
+
+  & .fc-header--name.fc-dark-mode {
+    color: var(--light);
   }
 }

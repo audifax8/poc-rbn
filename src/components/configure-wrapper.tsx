@@ -5,10 +5,14 @@ import Header from './header';
 import Footer from './footer';
 import Menu from './menu';
 import Model from './model';
+import RbnHeader from './rbn-header';
+import { useSelector } from 'react-redux';
 
 function ConfigureWrapper() {
+  const darkMode = useSelector((state: any) => state?.ui?.darkMode);
   return (
-    <div className='configure-wrapper'>
+    <div className={`configure-wrapper ${darkMode ? 'fc-dark-mode' : ''}`}>
+      <RbnHeader />
       <Header />
       <Model />
       <Menu />

@@ -1,21 +1,39 @@
 .configure-wrapper {
+  background-image: url('../../public/img/light-backgroung-desktop.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100vw 100vh;
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   grid-template-areas: 
+    'rbn-header rbn-header'
     '. fc-header'
     'fc-model fc-menu'
     '. fc-footer';
 
   @media (max-width: 700px) { 
+    background-image: url('../../public/img/light-backgroung-mobile.png');
+  }
+
+  @media (max-width: 700px) { 
     grid-template-columns: 1fr;
 
     grid-template-areas: 
+      'rbn-header'
       'fc-header'
       'fc-model'
       'fc-footer';
   }
+}
+
+.configure-wrapper.fc-dark-mode {
+  background-image: url('../../public/img/dark-backgroung.png');
+}
+
+.configure-wrapper .rbn-header {
+  grid-area: rbn-header;
 }
 
 .configure-wrapper .fc-header {

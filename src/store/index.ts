@@ -6,6 +6,7 @@ import fcParams from './fc-params';
 import rtr from './rtr';
 import rxc from './rxc';
 import vm from './vm';
+import ui from './ui';
 
 export default configureStore({
   reducer: {
@@ -15,6 +16,7 @@ export default configureStore({
     fcParams,
     rtr,
     rxc,
-    vm
+    vm,
+    ui
   },
 });
