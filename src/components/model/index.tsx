@@ -8,8 +8,8 @@ export default function Model() {
   return (
     <section className='fc-model'>
       {name && <img className='' src={`/img/${isMobile ? 'mobile' : 'desktop'}.png`}/>}
-      {!name && <div className='fc-skeleton'>
-        <img className='fc-skeleton' src={`/img/${isMobile ? 'mobile' : 'desktop'}.png`}/>
+      {!name && <div className='fc-image-wrapper fc-skeleton'>
+        <img className='fc-skeleton' src='/img/sk.png'/>
       </div>}
     </section>
   );
