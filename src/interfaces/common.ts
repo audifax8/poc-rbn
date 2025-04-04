@@ -35,4 +35,7 @@ export interface IProduct {
 export interface IConfigureService {
   getProduct(): any;
   getProductName(): string;
+  getToken(): string;
+  getRecipe(format: string, option1?: string, option2?: string): any;
+  getAttribute(options: any): IConfigurableAttribute;
 };

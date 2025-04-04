@@ -67,6 +67,7 @@ export function ConfigureCoreProvider(props: any) {
               return;
             }
             const _cService = new ConfigureService(configureCore);
+            console.log(_cService.getToken());
             const product = _cService.getProduct();
             dispatch(setLoaded(true));
             dispatch(setProduct(product));
