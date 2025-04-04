@@ -16,7 +16,6 @@ export default function Model() {
   useEffect(() => {
     if (name && scriptLoaded) {
       const token = configureCoreService.getToken();
-      console.log({token});
       rtrService.init(token);
     }
   },
@@ -24,22 +23,24 @@ export default function Model() {
 
   return (
     <section className='fc-model'>
-      {!name && !scriptLoaded && 
-        <div className='fc-image-wrapper fc-skeleton'>
-          <img className='fc-skeleton' src='/img/sk.png'/>
-        </div>
-      }
-      {!name && scriptLoaded && 
-        <div className='fc-image-wrapper fc-skeleton'>
-          <img className='fc-skeleton' src='/img/sk.png'/>
-        </div>
-      }
-      {name && !scriptLoaded &&
-        <img className='' src={`/img/${isMobile ? 'mobile' : 'desktop'}.png`}/>
-      }
       <div
         id='viewer'
-        className={`fc-rtr`}>
+        className={`fc-rtr ${(scriptLoaded && name) ? 'fc-rtr-on' : ''}`}>
+          {!name && !scriptLoaded && 
+            <div className='fc-image-wrapper fc-skeleton'>
+              <img className='fc-skeleton' src='/img/sk.png'/>
+            </div>
+          }
+          {!name && scriptLoaded && 
+            <div className='fc-image-wrapper fc-skeleton'>
+              <img className='fc-skeleton' src='/img/sk.png'/>
+            </div>
+          }
+          {name && !scriptLoaded &&
+            <div className='fc-image-wrapper'>
+              <img className='' src={`/img/${isMobile ? 'mobile' : 'desktop'}.png`}/>
+            </div>
+          }
       </div>
     </section>
   );
