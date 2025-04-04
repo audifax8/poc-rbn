@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector/*, useDispatch*/ } from 'react-redux';
 //import lightModeIcon from '../../../public/svg/light.svg';
 //import darkModeIcon from '../../../public/svg/dark.svg';
 
@@ -25,7 +25,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Button from '../button';
 import './index.css';
 
-import { setDarkMode } from '../../store/ui';
+//import { setDarkMode } from '../../store/ui';
 
 export default function Header() {
   //const dispatch = useDispatch();

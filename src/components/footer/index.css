@@ -1,3 +1,58 @@
 .fc-footer {
   height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & .fc-footer--price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 16px;
+    gap: 8px;
+
+    & .fc-footer-final-price {
+      color: var(--primary-color);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 160%; /* 25.6px */
+      text-transform: uppercase;
+    }
+
+    & .fc-footer-total-price {
+      color: var(--dark-gray);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%; /* 22.4px */
+      text-decoration-line: line-through;
+    }
+
+    & .fc-footer-discount-price {
+      border-radius: 32px;
+      border: 1px solid var(--font-dark);
+      background: #FFF;
+
+      display: flex;
+      height: 20px;
+      padding: 0px 8px;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+
+      color: var(--font-dark);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 160%; /* 19.2px */
+      text-transform: uppercase;
+    }
+  }
+
+  & .fc-button {
+    border-radius: 1px;
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+  }
 }

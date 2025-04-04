@@ -8,6 +8,7 @@
   --skeleton-100: hsl(200, 20%, 95%);
   --font-light: #FFF;
   --font-dark: #1F1F24;
+  --primary-color: #E80C00;
 }
 
 body {
@@ -29,7 +30,7 @@ code {
 }
 
 .fc-skeleton-text {
-  width: 10em;
+  width: 7em;
   height: .5em;
   border-radius: .2rem;
 }

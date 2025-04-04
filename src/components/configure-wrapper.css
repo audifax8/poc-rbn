@@ -1,5 +1,5 @@
 .configure-wrapper {
-  /*background-image: url('../../public/img/light-backgroung-desktop.png');*/
+  background-image: url('../../public/img/light-backgroung-desktop.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -14,7 +14,7 @@
     '. fc-footer';
 
   @media (max-width: 700px) { 
-    /*background-image: url('../../public/img/light-backgroung-mobile.png');*/
+    background-image: url('../../public/img/light-backgroung-mobile.png');
   }
 
   @media (max-width: 700px) { 

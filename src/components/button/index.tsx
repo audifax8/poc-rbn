@@ -8,7 +8,6 @@ export default function Button(props: any) {
   const darkMode = useSelector((state: any) => state?.ui?.darkMode);
 
   const onClick = useCallback((e: React.MouseEvent) => {
-    console.log('clik');
     e.preventDefault();
     e.stopPropagation();
     if (onClickCallback) {
