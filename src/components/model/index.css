@@ -4,6 +4,11 @@
   justify-content: center;
   align-items: center;
 
+  & .fc-rtr {
+    width: 100vw;
+    height: 100%;
+  }
+
   .fc-image-wrapper {
     display: flex;
     justify-content: center;
