@@ -1,4 +1,10 @@
 .fc-menu {
+  border-radius: 24px;
+  border: 1px solid #FFF;
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(12.5px);
+  margin: 25px;
+
   @media (max-width: 700px) { 
     display: none;
   }

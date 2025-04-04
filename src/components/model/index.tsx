@@ -9,14 +9,18 @@ import { useRTR } from '../../providers/rtr';
 export default function Model() {
   const name = useSelector((state: any) => state?.product?.name);
   const { scriptLoaded } = useSelector((state: any) => state?.rtr);
+  const avoidRTR = useSelector((state: any) => state?.fcParams?.values?.avoidRTR);
+  console.log({avoidRTR});
 
   const { configureCoreService } = useConfigure();
   const { rtrService } = useRTR();
 
   useEffect(() => {
     if (name && scriptLoaded) {
-      const token = configureCoreService.getToken();
-      rtrService.init(token);
+      if (!avoidRTR) {
+        const token = configureCoreService.getToken();
+        rtrService.init(token);
+      }
     }
   },
   [scriptLoaded, name]);
@@ -25,7 +29,7 @@ export default function Model() {
     <section className='fc-model'>
       <div
         id='viewer'
-        className={`fc-rtr ${(scriptLoaded && name) ? 'fc-rtr-on' : ''}`}>
+        className={`fc-rtr ${((scriptLoaded && name) && !avoidRTR) ? 'fc-rtr-on' : ''}`}>
           {!name && !scriptLoaded && 
             <div className='fc-image-wrapper fc-skeleton'>
               <img className='fc-skeleton' src='/img/sk.png'/>
@@ -41,9 +45,12 @@ export default function Model() {
               <img className='' src={`/img/${isMobile ? 'mobile' : 'desktop'}.png`}/>
             </div>
           }
+          {avoidRTR && 
+            <div className='fc-image-wrapper'>
+              <img className='' src={`/img/${isMobile ? 'mobile' : 'desktop'}.png`}/>
+            </div>
+          }
       </div>
     </section>
   );
 }
-//<img className='fc-skeleton' src='/img/sk.png'/>
-//<img className='fc-skeleton' src={`/img/${isMobile ? 'mobile' : 'desktop'}.png`}/>
