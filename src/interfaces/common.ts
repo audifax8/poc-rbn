@@ -1,3 +1,11 @@
+declare global {
+  interface Window {
+    rtrViewerMV: any;
+    _configure: any;
+    vmmv: any;
+    RXC: any;
+  }
+}
 export interface IAttributeValue {
   active: boolean;
   selected: boolean;

@@ -7,15 +7,16 @@ import store from './store'
 
 import ConfigureWrapper from './components/configure-wrapper';
 import { PreloadScripts } from './hooks/preload';
+import { RTRProvider } from './providers/rtr';
 
 function App() {
-  //const state = store.getState();
-  //console.log({store,state});
   return (
     <Provider store={store}>
       <PreloadScripts />
       <ConfigureCoreProvider>
+      <RTRProvider>
         <ConfigureWrapper />
+      </RTRProvider>
       </ConfigureCoreProvider>
     </Provider>
   );
