@@ -8,16 +8,26 @@ export default function Button(props: any) {
   const darkMode = useSelector((state: any) => state?.ui?.darkMode);
 
   const onClick = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+    //e.preventDefault();
+    //e.stopPropagation();
     if (onClickCallback) {
-      onClickCallback();
+      return onClickCallback(e);
     }
+    return e;
   }, []);
+
+  const onClick2 = (e: React.MouseEvent) => {
+    //e.preventDefault();
+    //e.stopPropagation();
+    if (onClickCallback) {
+      return onClickCallback(e);
+    }
+    return e;
+  };
   return (
     <button
       className={`${!enabled ? 'fc-skeleton' : ''} fc-button ${darkMode ? 'fc-dark-mode' : ''}`}
-      onClick={onClick}
+      onClick={onClick2}
       disabled={!enabled}
     >
       {icon && icon}

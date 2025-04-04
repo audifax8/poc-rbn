@@ -1,4 +1,4 @@
-import { useEffect, createContext, useState } from 'react';
+import { useEffect, createContext, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLoaded } from '../store/configure-core';
 import { ConfigureService } from '../interfaces/configure-core';
@@ -10,6 +10,10 @@ import { setFcParams } from '../store/fc-params';
 const createCore = require('@cfg.plat/configure-core');
 
 const ConfigureCoreContext = createContext({});
+
+export function useConfigure(): any {
+  return useContext(ConfigureCoreContext);
+}
 
 export function ConfigureCoreProvider(props: any) {
   const dispatch = useDispatch();

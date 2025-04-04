@@ -2,9 +2,11 @@ import { useSelector } from 'react-redux';
 
 import Button from '../button';
 import './index.css';
+//import { useConfigure } from '../../providers/configure-core';
 
 export default function Footer() {
-  const name = useSelector((state: any) => state?.product?.name);
+  const name = useSelector((state: any) => state?.configureCore?.loaded);
+  //const { configureCoreService  } = useConfigure();
   return (
     <section className='fc-footer'>
       <div className={`fc-footer--price`}>
@@ -22,6 +24,18 @@ export default function Footer() {
         <Button
             label='add to cart'
             enabled={name}
+            onClickCallback={(e: any) => {
+              /*const { configure } = configureCoreService;
+              console.log(configure);
+              //console.log(configure.getConfig());
+              console.log(configure.isWebGl());
+              console.log(configure.getPrice());
+              console.log(configure.getFcParams());
+              
+              configureCoreService.configure.saveRecipe({}, (err: any, recipe: any) => {
+                console.log({err, recipe});
+              });*/
+            }}
           />
       </div>
     </section>
