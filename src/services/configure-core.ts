@@ -1,8 +1,10 @@
+import { ICAMap } from '../constants';
 import {
   IConfigureService,
   IProduct,
-  IConfigurableAttribute
-} from "./common";
+  IConfigurableAttribute,
+  IAttributeValue
+} from '../interfaces';
 
 export class ConfigureService implements IConfigureService {
   configure: IConfigureService;
@@ -29,6 +31,11 @@ export class ConfigureService implements IConfigureService {
   getAttribute(options: any): IConfigurableAttribute {
     return this.configure.getAttribute(options);
   }
+
+  getSelectedAV(alias: string): IAttributeValue {
+    const ca = this.getAttribute({ alias });
+    return ca.values.find((av: IAttributeValue) => av.selected) as IAttributeValue;
+  };
 
   getToken(): string {
     const skipServices = true;
@@ -72,5 +79,56 @@ export class ConfigureService implements IConfigureService {
     }
     const token = ['TKN', productVendorId.toUpperCase()].concat(tokenArray).join('~');
     return encodeURIComponent(token);
+  };
+
+  mapCas(): ICAMap[] {
+    const casToMap: ICAMap[] = [
+      {
+        id: null,
+        alias: 'frame_sku',
+        icon: 'frame',
+        selectedAvId: null
+      },
+      {
+        id: null,
+        alias: 'lenses_sku',
+        icon: 'lens',
+        selectedAvId: null
+      },    
+      {
+        id: null,
+        alias: 'temple_tips_sku',
+        icon: 'temple',
+        selectedAvId: null
+      },
+      {
+        id: null,
+        alias: '',
+        icon: 'temple',
+        selectedAvId: null
+      }
+    ];
+
+    const mappedCAs = casToMap.map(
+      (ca: ICAMap) => {
+        const { alias } = ca;
+        try {
+          const configurableAttibute = this.getAttributeByAlias(alias);
+          const av = this.getSelectedAV(alias);
+          if (configurableAttibute) {
+            return {
+              ...ca,
+              id: configurableAttibute.id,
+              selectedAvId: av.id
+            };
+          }
+        } catch (e) {
+          console.log({e});
+          return undefined;
+        }
+      }
+    ) as ICAMap[];
+    const sanitizedCas = mappedCAs.filter((ca: ICAMap) => ca);
+    return sanitizedCas;
   };
 }

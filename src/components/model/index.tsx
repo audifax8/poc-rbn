@@ -10,7 +10,6 @@ export default function Model() {
   const name = useSelector((state: any) => state?.product?.name);
   const { scriptLoaded } = useSelector((state: any) => state?.rtr);
   const avoidRTR = useSelector((state: any) => state?.fcParams?.values?.avoidRTR);
-  console.log({avoidRTR});
 
   const { configureCoreService } = useConfigure();
   const { rtrService } = useRTR();

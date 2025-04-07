@@ -1,0 +1,29 @@
+.fc-attribute-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  justify-content: space-between;
+
+  & .fc-attribute-header-ca-name {
+    color: var(--Dark);
+    font-family: Oswald;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%; /* 25.6px */
+    text-transform: uppercase;
+  }
+
+  & .fc-attribute-header-av-name {
+    color: var(--Dark);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 25.6px */
+  }
+
+  & .fc-attribute-header--icon {
+    
+  }
+}

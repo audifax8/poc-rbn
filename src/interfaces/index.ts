@@ -1,3 +1,5 @@
+import { ICAMap } from "../constants";
+
 declare global {
   interface Window {
     rtrViewerMV: any;
@@ -32,10 +34,23 @@ export interface IProduct {
   vendorId: string;
 };
 
+export interface IAttributeValue {
+  active: boolean;
+  selected: boolean;
+  selectable: boolean;
+  id: number;
+  url?: string;
+  vendorId: string;
+  alias: string;
+  name: string;
+  metadata: any[];
+};
+
 export interface IConfigureService {
   getProduct(): any;
   getProductName(): string;
   getToken(): string;
   getRecipe(format: string, option1?: string, option2?: string): any;
   getAttribute(options: any): IConfigurableAttribute;
+  mapCas(): ICAMap[];
 };

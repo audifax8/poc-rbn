@@ -1,11 +1,12 @@
 import { useEffect, createContext, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLoaded } from '../store/configure-core';
-import { ConfigureService } from '../interfaces/configure-core';
+import { ConfigureService } from '../services/configure-core';
 import { setProduct } from '../store/product';
-import { IConfigureService } from '../interfaces/common';
+import { IConfigureService } from '../interfaces';
 import { useSearchParams } from 'react-router-dom';
 import { setFcParams } from '../store/fc-params';
+import { setCASToRender } from '../store/ui';
 
 const createCore = require('@cfg.plat/configure-core');
 
@@ -71,6 +72,8 @@ export function ConfigureCoreProvider(props: any) {
             dispatch(setLoaded(true));
             dispatch(setProduct(product));
             dispatch(setFcParams(mergedParams));
+            const casToRender = _cService.mapCas();
+            dispatch(setCASToRender(casToRender));
             setConfigureCoreService(_cService);
           }
         );

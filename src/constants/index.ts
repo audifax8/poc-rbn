@@ -6,3 +6,23 @@ export enum RenderType {
   '3D' = '3D',
   '2D' = '2D',
 };
+
+export interface ICAMap {
+  id: number | null;
+  alias: string;
+  icon: string;
+  //ca: IConfigurableAttribute | null;
+  selectedAvId: number | null;
+};
+
+export interface IAttributeValue {
+  active: boolean;
+  selected: boolean;
+  selectable: boolean;
+  id: number;
+  url?: string;
+  vendorId: string;
+  alias: string;
+  name: string;
+  metadata: any[];
+};
