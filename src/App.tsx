@@ -23,3 +23,16 @@ function App() {
 }
 
 export default App;
+
+/*
+
+ <Provider store={store}>
+      <PreloadScripts />
+      <ConfigureCoreProvider>
+      <RTRProvider>
+        <ConfigureWrapper />
+      </RTRProvider>
+      </ConfigureCoreProvider>
+    </Provider>
+
+*/

@@ -59,9 +59,27 @@ export function ConfigureCoreProvider(props: any) {
 
     Promise.all([
       fetch(graphUrl),
-      fetch(preferencesUrl)
+      fetch(preferencesUrl),
+      //fetch('//rtrmv.essilorluxottica.com/lib/v/3.0.3/main.umd.js'),
+      //fetch('//vmmv.luxottica.com/v/4.13/index.umd.js'),
+      //fetch('//rxc.luxottica.com/rxc3/fe/test/v1.1.1/dist/rxc.js')
     ])
-    .then(async ([productGraphResponse, preferencesResponse]) => {
+    .then(async (
+      [
+        productGraphResponse,
+        preferencesResponse,
+        //rtrResponse,
+        //vmResponse,
+        //rxcResponse
+      ]
+    ) => {
+      console.log({
+        productGraphResponse,
+        preferencesResponse,
+        //rtrResponse,
+        //vmResponse,
+        //rxcResponse
+      });
       if (productGraphResponse.ok && preferencesResponse.ok) {
         const productGraph = await productGraphResponse.json();
         const preferences = await preferencesResponse.json();

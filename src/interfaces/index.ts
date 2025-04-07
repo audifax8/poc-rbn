@@ -1,11 +1,12 @@
 import { ICAMap } from "../constants";
-
 declare global {
   interface Window {
     rtrViewerMV: any;
     _configure: any;
     vmmv: any;
+    _rxcData: any;
     RXC: any;
+    RXC_LOADED: boolean;
   }
 }
 export interface IAttributeValue {

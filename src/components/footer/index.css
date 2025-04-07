@@ -33,6 +33,10 @@
 
     & .fc-footer-actions {
       justify-content: space-between;
+
+      & .fc-footer--show-menu {
+        display: flex;
+      }
     }
 
     & .fc-footer-price-info {
@@ -52,10 +56,6 @@
         border-radius: 48px;
         background: var(--Dark, #1F1F24);
       }
-    }
-
-    & .fc-footer--show-menu {
-      display: flex;
     }
   }
 
