@@ -24,6 +24,7 @@ import { useSelector/*, useDispatch*/ } from 'react-redux';
 
 import Button from '../button';
 import './index.css';
+import { useVM } from '../../providers/vm';
 
 //import { setDarkMode } from '../../store/ui';
 
@@ -31,6 +32,16 @@ export default function Header() {
   //const dispatch = useDispatch();
   const name = useSelector((state: any) => state?.product?.name);
   const darkMode = useSelector((state: any) => state?.ui?.darkMode);
+
+  const { scriptLoaded, enabled } = useSelector((state: any) => state?.vm);
+  const { vmService } = useVM();
+
+  const onVMlick = async () => {
+    if (scriptLoaded && enabled) {
+      await vmService.isBrowserSupported();
+    }
+  };
+
   return (
     <section className='fc-header'>
       <div className={`fc-header--name ${darkMode ? 'fc-dark-mode' : ''}`}>
@@ -47,7 +58,8 @@ export default function Header() {
               <path d="M9 6C7.13925 6 5.625 7.51388 5.625 9.375C5.625 11.2361 7.13925 12.75 9 12.75C10.8608 12.75 12.375 11.2361 12.375 9.375C12.375 7.51388 10.8608 6 9 6ZM9 12C7.5525 12 6.375 10.8221 6.375 9.375C6.375 7.92788 7.5525 6.75 9 6.75C10.4475 6.75 11.625 7.92788 11.625 9.375C11.625 10.8221 10.4475 12 9 12Z" fill="white"/>
             </svg>
           }
-          enabled={name}
+          enabled={(scriptLoaded && enabled)}
+          onClickCallback={onVMlick}
         />
       </div>
     </section>
