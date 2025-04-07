@@ -4,8 +4,15 @@
   background: rgba(255, 255, 255, 0.70);
   backdrop-filter: blur(12.5px);
   margin: 25px;
+  height: fit-content;
 
   @media (max-width: 700px) { 
     display: none;
+  }
+
+  & .fc-menu--list {
+    list-style-type: none;
+    margin: 8.5px;
+    padding: 0;
   }
 }
