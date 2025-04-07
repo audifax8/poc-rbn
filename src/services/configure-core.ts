@@ -123,7 +123,6 @@ export class ConfigureService implements IConfigureService {
             };
           }
         } catch (e) {
-          console.log({e});
           return undefined;
         }
       }

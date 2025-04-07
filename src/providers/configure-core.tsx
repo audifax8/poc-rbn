@@ -4,7 +4,7 @@ import { setLoaded } from '../store/configure-core';
 import { ConfigureService } from '../services/configure-core';
 import { setProduct } from '../store/product';
 import { IConfigureService } from '../interfaces';
-import { useSearchParams } from 'react-router-dom';
+//import { useSearchParams } from 'react-router-dom';
 import { setFcParams } from '../store/fc-params';
 import { setCASToRender } from '../store/ui';
 
@@ -18,14 +18,14 @@ export function useConfigure(): any {
 
 export function ConfigureCoreProvider(props: any) {
   const dispatch = useDispatch();
-  const [queryParameters] = useSearchParams();
-  const queryWorkflow = queryParameters.get('workflow');
-  const queryCustomer = queryParameters.get('customer');
-  const queryProduct = queryParameters.get('product');
-  const avoidRTR = queryParameters.get('avoidRTR');
   const loaded = useSelector((state: any) => state?.configureCore?.loaded);
   const fcParams = useSelector((state: any) => state?.fcParams?.values);
-  const mergedParams = {
+  //const [queryParameters] = useSearchParams();
+  /*const queryWorkflow = queryParameters.get('workflow');
+  const queryCustomer = queryParameters.get('customer');
+  const queryProduct = queryParameters.get('product');
+  const avoidRTR = queryParameters.get('avoidRTR');*/
+  /*const mergedParams = {
     ...fcParams,
     workflow: queryWorkflow || fcParams.workflow,
     customer: queryCustomer || fcParams.customer,
@@ -33,6 +33,15 @@ export function ConfigureCoreProvider(props: any) {
     product: queryProduct || fcParams.product,
     productId: queryProduct || fcParams.product,
     avoidRTR
+  };*/
+
+  const mergedParams = {
+    ...fcParams,
+    workflow: fcParams.workflow,
+    customer: fcParams.customer,
+    customerId: fcParams.customer,
+    product: fcParams.product,
+    productId: fcParams.product
   };
 
   const { children } = props;

@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { preload } from 'react-dom';
 import { useSelector } from 'react-redux';
-import { useSearchParams } from 'react-router-dom';
+//import { useSearchParams } from 'react-router-dom';
 
 export function PreloadScripts() {
-  const [queryParameters] = useSearchParams();
+  const fcParams = useSelector((state: any) => state?.fcParams?.values);
+  const product = useSelector((state: any) => state?.product);
+  /*const [queryParameters] = useSearchParams();
   const queryWorkflow = queryParameters.get('workflow');
   const queryCustomer = queryParameters.get('customer');
   const queryProduct = queryParameters.get('product');
-  const fcParams = useSelector((state: any) => state?.fcParams?.values);
-  const product = useSelector((state: any) => state?.product);
   const mergedParams = {
     ...fcParams,
     workflow: queryWorkflow || fcParams.workflow,
@@ -17,6 +17,15 @@ export function PreloadScripts() {
     customerId: queryCustomer || fcParams.customer,
     product: queryProduct || fcParams.product,
     productId: queryProduct || fcParams.product
+  };*/
+
+  const mergedParams = {
+    ...fcParams,
+    workflow: fcParams.workflow,
+    customer: fcParams.customer,
+    customerId: fcParams.customer,
+    product: fcParams.product,
+    productId: fcParams.product
   };
 
   const { vendorId, currency } = product;
