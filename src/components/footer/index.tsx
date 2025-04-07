@@ -2,15 +2,24 @@ import { useSelector } from 'react-redux';
 
 import Button from '../button';
 import './index.css';
-//import { useConfigure } from '../../providers/configure-core';
+import { useRXC } from '../../providers/rxc';
 
 export default function Footer() {
   const name = useSelector((state: any) => state?.configureCore?.loaded);
-  //const { configureCoreService  } = useConfigure();
+  const { scriptLoaded, enabled } = useSelector((state: any) => state?.rxc);
+  const { rxcService } = useRXC();
+  const onRXCClick = () => {
+    console.log({scriptLoaded, enabled });
+    console.log('click');
+    if (scriptLoaded && enabled) {
+      rxcService.renderRxc();
+    }
+  };
   return (
     <section className='fc-footer'>
       <div className='fc-footer-actions'>
         <div className='fc-footer--rxc'>
+          <div id="#rxcApp" className='rxcApp'></div>
           <Button
             label='try lenses'
             icon={
@@ -27,6 +36,7 @@ export default function Footer() {
               </svg>
             }
             enabled={name}
+            onClickCallback={onRXCClick}
           />
         </div>
         <div className='fc-footer--show-menu'>
