@@ -1,8 +1,52 @@
 .fc-footer {
   height: 5vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-left: 25px;
+
+  @media (max-width: 700px) { 
+    height: 10vh;
+    margin-left: 0px;
+
+    & .fc-footer-actions {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    & .fc-footer-price-info {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    & .fc-footer--rxc {
+      margin-left: 21px;
+
+      & .fc-button {
+        display: flex;
+        height: 32px;
+        padding: 0px 16px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 48px;
+        background: var(--Dark, #1F1F24);
+      }
+    }
+  }
+
+  & .fc-footer-price-info {
+    & .fc-button {
+      border-radius: 1px;
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+  }
 
   & .fc-footer--price {
     display: flex;
@@ -48,11 +92,5 @@
       line-height: 160%; /* 19.2px */
       text-transform: uppercase;
     }
-  }
-
-  & .fc-button {
-    border-radius: 1px;
-    border-color: var(--primary-color);
-    background: var(--primary-color);
   }
 }

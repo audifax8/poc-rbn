@@ -3,6 +3,11 @@
   justify-content: space-between;
   height: 5vh;
   align-items: center;
+  margin-left: 25px;
+
+  @media (max-width: 700px) { 
+    margin-left: 0px;
+  }
 
   & .fc-header--name {
     color: var(--dark);
