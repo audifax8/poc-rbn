@@ -41,7 +41,7 @@ export function PreloadScripts() {
     preload(preferencesUrl, {as: 'script', crossOrigin: 'anonymous'});
     preload('//rtrmv.essilorluxottica.com/lib/v/3.0.3/main.umd.js', {as: 'script', crossOrigin: 'anonymous'});
     preload('//vmmv.luxottica.com/v/4.13/index.umd.js', {as: 'script', crossOrigin: 'anonymous'});
-    preload('//rxc.luxottica.com/rxc3/fe/test/v1.1.1/dist/rxc.js', {as: 'script', crossOrigin: 'anonymous'});
+    preload('//rxc.luxottica.com/rxc3/fe/test/v1.0.1/dist/rxc.js', {as: 'script', crossOrigin: 'anonymous'});
     if (vendorId && currency) {
       preload(`//one-configurator-services-mockup.luxdeepblue.com/components?vendorId=${vendorId}&currency=${currency}`, {as: 'script', crossOrigin: 'anonymous'});
     }

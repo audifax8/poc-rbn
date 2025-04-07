@@ -4,15 +4,22 @@ import Button from '../button';
 import './index.css';
 import { useRXC } from '../../providers/rxc';
 
+/*
+<div className='fc-footer--show-menu'>
+          <Button
+            label='show menu'
+            enabled={name}
+          />
+        </div>
+*/
+
 export default function Footer() {
   const name = useSelector((state: any) => state?.configureCore?.loaded);
   const { scriptLoaded, enabled } = useSelector((state: any) => state?.rxc);
   const { rxcService } = useRXC();
-  const onRXCClick = () => {
-    console.log({scriptLoaded, enabled });
-    console.log('click');
+  const onRXCClick = async () => {
     if (scriptLoaded && enabled) {
-      rxcService.renderRxc();
+      await rxcService.renderRxc();
     }
   };
   return (
@@ -35,14 +42,8 @@ export default function Footer() {
                 </defs>
               </svg>
             }
-            enabled={name}
+            enabled={(scriptLoaded && enabled)}
             onClickCallback={onRXCClick}
-          />
-        </div>
-        <div className='fc-footer--show-menu'>
-          <Button
-            label='show menu'
-            enabled={name}
           />
         </div>
       </div>
