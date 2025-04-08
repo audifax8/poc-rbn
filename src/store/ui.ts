@@ -4,7 +4,37 @@ export const uiSlice = createSlice({
   name: 'ui',
   initialState: {
     darkMode: false,
-    casToRender: []
+    casToRender: [],
+    skeletonCas: [
+      {
+        id: 0,
+        alias: 'frame_sku',
+        icon: 'frame',
+        selectedAvId: null,
+        skeleton: true
+      },
+      {
+        id: 1,
+        alias: 'lenses_sku',
+        icon: 'lens',
+        selectedAvId: null,
+        skeleton: true
+      },    
+      {
+        id: 2,
+        alias: 'temple_tips_sku',
+        icon: 'temple',
+        selectedAvId: null,
+        skeleton: true
+      },
+      {
+        id: 3,
+        alias: '',
+        icon: 'temple',
+        selectedAvId: null,
+        skeleton: true
+      }
+    ]
   },
   reducers: {
     setDarkMode: (state, action) => {

@@ -20,7 +20,32 @@ const AttributeHeader = memo(function (props: IAttributeHeaderPropTypes) {
   const { caInfo, onClick } = props;
   const { alias, icon, selectedAvId, id } = caInfo;
   if (!selectedAvId) {
-    return <></>
+    return (
+      <>
+        <div className='fc-attribute-header' key={id}>
+          <div className='fc-attribute-header--info'>
+            <div className='fc-attribute-header--info--image fc-skeleton '>
+              <svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48' fill='none'>
+              </svg>
+            </div>
+            <div className='fc-attribute-header--info--ca-name fc-skeleton fc-skeleton-text'>
+              <span></span>
+            </div>
+            <div className='fc-attribute-header--info--av-name fc-skeleton fc-skeleton-text'>
+              <span></span>
+            </div>
+          </div>
+          <div className='fc-attribute-header--icon'>
+            <button className='fc-attribute-header--icon--button fc-skeleton'>
+              {
+              <svg xmlns='http://www.w3.org/2000/svg' width='17' height='16' viewBox='0 0 17 16' fill='none'>
+              </svg>
+              }
+            </button>
+          </div>
+        </div>
+      </>
+    );
   }
   const ca = configureCoreService.getAttributeByAlias(alias);
   const { values } = ca;

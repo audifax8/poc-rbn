@@ -13,6 +13,7 @@ export interface ICAMap {
   icon: string;
   //ca: IConfigurableAttribute | null;
   selectedAvId: number | null;
+  skeleton?: boolean;
 };
 
 export interface IAttributeValue {

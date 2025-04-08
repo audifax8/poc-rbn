@@ -26,7 +26,6 @@ export default function Footer() {
     <section className='fc-footer'>
       <div className='fc-footer-actions'>
         <div className='fc-footer--rxc'>
-          <div id="#rxcApp" className='rxcApp'></div>
           <Button
             label='try lenses'
             icon={
