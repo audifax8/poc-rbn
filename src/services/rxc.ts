@@ -78,12 +78,13 @@ export class RXCService implements IRXCService {
     };
 
     this.config = {
-      selector: '.rxcApp',
-      //selector: '#rxcApp',
+      //selector: '.rxcApp',
+      selector: '#rxcApp',
       brand: 'glasses',
       //showUI: false,
       data: {
         frame: {
+          catEntryId: '322532',
           upc: '8053672195736',
           model: '0RX5154',
           color: '2000',

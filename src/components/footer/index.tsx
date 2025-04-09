@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import Button from '../button';
 import './index.css';
 import { useRXC } from '../../providers/rxc';
+import { useConfigure } from '../../providers/configure-core';
 
 /*
 <div className='fc-footer--show-menu'>
@@ -14,6 +15,7 @@ import { useRXC } from '../../providers/rxc';
 */
 
 export default function Footer() {
+  const { configureCoreService } = useConfigure();
   const name = useSelector((state: any) => state?.configureCore?.loaded);
   const { scriptLoaded, enabled } = useSelector((state: any) => state?.rxc);
   const { rxcService } = useRXC();
@@ -48,14 +50,14 @@ export default function Footer() {
       </div>
       <div className='fc-footer-price-info'>
         <div className={`fc-footer--price`}>
-          <div className={`fc-footer-final-price ${!name ? 'fc-skeleton': ''}`}>
-            <label>$180.00</label>
+          <div className={`fc-footer-final-price ${!name ? 'fc-skeleton fc-skeleton-text': ''}`}>
+            {name &&  <label>$180.00</label>}
           </div>
-          <div className={`fc-footer-total-price ${!name ? 'fc-skeleton': ''}`}>
-            <label>$200.00</label>
+          <div className={`fc-footer-total-price ${!name ? 'fc-skeleton fc-skeleton-text': ''}`}>
+            {name && <label>$200.00</label>}
           </div>
-          <div className={`fc-footer-discount-price ${!name ? 'fc-skeleton': ''}`}>
-            <label>-20%</label>
+          <div className={`fc-footer-discount-price ${!name ? 'fc-skeleton fc-skeleton-text': ''}`}>
+            {name && <label>-20%</label>}
           </div>
         </div>
         <div className='fc-footer--cart'>
@@ -63,7 +65,7 @@ export default function Footer() {
               label='add to cart'
               enabled={name}
               onClickCallback={(e: any) => {
-                /*const { configure } = configureCoreService;
+                const { configure } = configureCoreService;
                 console.log(configure);
                 //console.log(configure.getConfig());
                 console.log(configure.isWebGl());
@@ -72,7 +74,7 @@ export default function Footer() {
                 
                 configureCoreService.configure.saveRecipe({}, (err: any, recipe: any) => {
                   console.log({err, recipe});
-                });*/
+                });
               }}
             />
         </div>

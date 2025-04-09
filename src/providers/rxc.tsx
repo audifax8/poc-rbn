@@ -15,7 +15,7 @@ export function RXCProvider(props: any) {
 
   useEffect(() => {
     const scriptTag = document.createElement('script');
-    scriptTag.src = '//rxc.luxottica.com/rxc3/fe/test/v1.0.1/dist/rxc.js';
+    scriptTag.src = '//rxc.luxottica.com/rxc3/fe/test/v1.1.4/dist/rxc.js';
     scriptTag.addEventListener('load', () => {
       const _rxcService = new RXCService(window.rtrViewerMV);
       setRxcService(_rxcService);

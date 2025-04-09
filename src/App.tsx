@@ -6,14 +6,13 @@ import { ConfigureCoreProvider } from './providers/configure-core';
 import store from './store'
 
 import ConfigureWrapper from './components/configure-wrapper';
-import { PreloadScripts } from './hooks/preload';
+//import { PreloadScripts } from './hooks/preload';
 import { RTRProvider } from './providers/rtr';
 import { RXCProvider } from './providers/rxc';
 
 function App() {
   return (
     <Provider store={store}>
-      <PreloadScripts />
       <ConfigureCoreProvider>
       <RTRProvider>
       <RXCProvider>

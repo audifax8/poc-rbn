@@ -12,7 +12,7 @@ function ConfigureWrapper() {
   const darkMode = useSelector((state: any) => state?.ui?.darkMode);
   return (
     <div className={`configure-wrapper ${darkMode ? 'fc-dark-mode' : ''}`}>
-      <div id="#rxcApp" className='rxcApp'></div>
+      <div id="rxcApp" className='rxcApp'></div>
       <RbnHeader />
       <Header />
       <Model />

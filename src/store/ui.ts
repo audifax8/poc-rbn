@@ -26,13 +26,6 @@ export const uiSlice = createSlice({
         icon: 'temple',
         selectedAvId: null,
         skeleton: true
-      },
-      {
-        id: 3,
-        alias: '',
-        icon: 'temple',
-        selectedAvId: null,
-        skeleton: true
       }
     ]
   },
