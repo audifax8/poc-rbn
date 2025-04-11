@@ -71,8 +71,18 @@ export default function Footer() {
                 console.log(configure.isWebGl());
                 console.log(configure.getPrice());
                 console.log(configure.getFcParams());
+
+                const data = {
+                  images: [
+                    'https://development.fluidconfigure.com/imagecomposer/recipe/__RECIPE_ID__/image/FFL,1.png'
+                  ],
+                  licenseeKey: "LUX_PoC__Ray_Ban_",
+                  price: 10,
+                  purpose: "addToCart",
+                  quantity: 1
+                };
                 
-                configureCoreService.configure.saveRecipe({}, (err: any, recipe: any) => {
+                configureCoreService.configure.saveRecipe(data, (err: any, recipe: any) => {
                   console.log({err, recipe});
                 });
               }}

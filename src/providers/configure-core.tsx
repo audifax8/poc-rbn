@@ -57,9 +57,13 @@ export function ConfigureCoreProvider(props: any) {
     const preferencesUrl =
       `//cdn-prod.fluidconfigure.com/static/configs/3.13.0/prod/${workflow}/${customer}/preferences.json`;
 
+    const uiSetting =
+      `//cdn-development.fluidconfigure.com/static/configs/3.13.0/prod/${workflow}/${customer}/product/${product}/ui-settings-en_US.json`;
+
     Promise.all([
       fetch(graphUrl),
       fetch(preferencesUrl),
+      //fetch(uiSetting)
       //fetch('//rtrmv.essilorluxottica.com/lib/v/3.0.3/main.umd.js'),
       //fetch('//vmmv.luxottica.com/v/4.13/index.umd.js'),
       //fetch('//rxc.luxottica.com/rxc3/fe/test/v1.1.1/dist/rxc.js')
@@ -68,6 +72,7 @@ export function ConfigureCoreProvider(props: any) {
       [
         productGraphResponse,
         preferencesResponse,
+        //uiSettingResponse
         //rtrResponse,
         //vmResponse,
         //rxcResponse
@@ -76,13 +81,17 @@ export function ConfigureCoreProvider(props: any) {
       console.log({
         productGraphResponse,
         preferencesResponse,
+        //uiSettingResponse
         //rtrResponse,
         //vmResponse,
         //rxcResponse
       });
+      //if (productGraphResponse.ok && preferencesResponse.ok && uiSettingResponse.ok) {
       if (productGraphResponse.ok && preferencesResponse.ok) {
         const productGraph = await productGraphResponse.json();
         const preferences = await preferencesResponse.json();
+        //const ui = await uiSettingResponse.json();
+        //console.log({preferences, productGraph, mergedParams, ui});
         console.log({preferences, productGraph, mergedParams});
 
         const t = {
@@ -100,15 +109,18 @@ export function ConfigureCoreProvider(props: any) {
           productId: 22956,
           sessionId: "fe382c91-cd72-49e5-9725-75a65e751f6c",
           shouldSkipCache: true,
-          workflow: "prod"
+          workflow: "prod",
+          apiKey: 'LUX-Ray-Ban-8taOhSR5AFyjt9tfxU'
         };
         createCore(
           {
             productGraph,
             preferences,
-            fcParams: t
+            ...t,
+            //ui
           },
           (error: any, configureCore: any) => {
+            console.log({error, configureCore});
             if (error) {
               console.error(error);
               return;
