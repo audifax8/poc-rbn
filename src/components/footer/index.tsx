@@ -1,28 +1,25 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '../button';
 import './index.css';
 import { useRXC } from '../../providers/rxc';
 import { useConfigure } from '../../providers/configure-core';
-
-/*
-<div className='fc-footer--show-menu'>
-          <Button
-            label='show menu'
-            enabled={name}
-          />
-        </div>
-*/
+import { setMenuOpen } from '../../store/ui';
 
 export default function Footer() {
+  const dispatch = useDispatch();
   const { configureCoreService } = useConfigure();
   const name = useSelector((state: any) => state?.configureCore?.loaded);
+  const { menuOpen } = useSelector((state: any) => state?.ui);
   const { scriptLoaded, enabled } = useSelector((state: any) => state?.rxc);
   const { rxcService } = useRXC();
   const onRXCClick = async () => {
     if (scriptLoaded && enabled) {
       await rxcService.renderRxc();
     }
+  };
+  const onMenuOpenClick = () => {
+    return dispatch(setMenuOpen(!menuOpen));
   };
   return (
     <section className='fc-footer'>
@@ -45,6 +42,13 @@ export default function Footer() {
             }
             enabled={(scriptLoaded && enabled)}
             onClickCallback={onRXCClick}
+          />
+        </div>
+        <div className='fc-footer--show-menu'>
+          <Button
+            label={!menuOpen ? 'show menu' : 'close menu'}
+            enabled={name}
+            onClickCallback= {onMenuOpenClick}
           />
         </div>
       </div>

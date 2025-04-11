@@ -25,7 +25,12 @@
     /*background-image: url('../../public/img/light-backgroung-mobile.png');*/
   }
 
-  @media (max-width: 700px) { 
+  @media (max-width: 700px) {
+
+    & .fc-menu {
+      display: none;
+    }
+
     grid-template-columns: 1fr;
 
     grid-template-areas: 
@@ -33,6 +38,33 @@
       'fc-header'
       'fc-model'
       'fc-footer';
+  }
+
+  &.fc-menu-open {
+    height: 100vh;
+
+    @media (max-width: 700px) {
+
+      & .rbn-header {
+        display: none;
+      }
+
+      & .fc-model {
+        height: 30vh;
+      }
+
+      & .fc-menu {
+        display: inline-block;
+        height: 55vh;
+        margin: 0;
+      }
+
+      grid-template-areas: 
+        'fc-header'
+        'fc-model'
+        'fc-footer'
+        'fc-menu';
+    }
   }
 }
 

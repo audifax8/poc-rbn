@@ -9,15 +9,17 @@ import RbnHeader from './rbn-header';
 import { useSelector } from 'react-redux';
 
 function ConfigureWrapper() {
-  const darkMode = useSelector((state: any) => state?.ui?.darkMode);
+  const { darkMode, menuOpen } = useSelector((state: any) => state?.ui);
+
+  const classes = `configure-wrapper ${darkMode ? 'fc-dark-mode' : ''} ${menuOpen ? 'fc-menu-open': ''}`;
   return (
-    <div className={`configure-wrapper ${darkMode ? 'fc-dark-mode' : ''}`}>
+    <div className={classes}>
       <div id="rxcApp" className='rxcApp'></div>
       <RbnHeader />
       <Header />
       <Model />
-      <Menu />
       <Footer />
+      <Menu />
     </div>
   );
 }
