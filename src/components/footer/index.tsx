@@ -66,23 +66,22 @@ export default function Footer() {
               enabled={name}
               onClickCallback={(e: any) => {
                 const { configure } = configureCoreService;
-                console.log(configure);
-                //console.log(configure.getConfig());
-                console.log(configure.isWebGl());
-                console.log(configure.getPrice());
-                console.log(configure.getFcParams());
-
                 const data = {
-                  images: [
-                    'https://development.fluidconfigure.com/imagecomposer/recipe/__RECIPE_ID__/image/FFL,1.png'
-                  ],
                   licenseeKey: "LUX_PoC__Ray_Ban_",
                   price: 10,
                   purpose: "addToCart",
-                  quantity: 1
+                  quantity: 1,
+                  beforeSave: (cb: Function) => {
+                    console.log('before save');
+                    return cb();
+                  },
+                  afterSave: (cb: Function) => {
+                    console.log('after save');
+                    return cb();
+                  }
                 };
                 
-                configureCoreService.configure.saveRecipe(data, (err: any, recipe: any) => {
+                configure.saveRecipe(data, (err: any, recipe: any) => {
                   console.log({err, recipe});
                 });
               }}
