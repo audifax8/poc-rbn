@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import AttributeHeader from './components/attribute-header';
 
 import './index.css';
-import { ICAMap } from '../../constants';
+import { ICAMap } from '../../interfaces';
 
 export default function Menu() {
   const name = useSelector((state: any) => state?.product?.name);

@@ -8,6 +8,7 @@ import { useRTR } from '../../providers/rtr';
 
 export default function Model() {
   const name = useSelector((state: any) => state?.product?.name);
+  //const name = false;
   const { scriptLoaded } = useSelector((state: any) => state?.rtr);
   const avoidRTR = useSelector((state: any) => state?.fcParams?.values?.avoidRTR);
 
@@ -24,6 +25,9 @@ export default function Model() {
   },
   [scriptLoaded, name]);
 
+  //const old = '/img/sk.png';
+  const skeletonImgPath = `/img/${isMobile ? 'mobile' : 'desktop'}.png`;
+
   return (
     <section className='fc-model'>
       <div
@@ -31,22 +35,22 @@ export default function Model() {
         className={`fc-rtr ${((scriptLoaded && name) && !avoidRTR) ? 'fc-rtr-on' : ''}`}>
           {!name && !scriptLoaded && 
             <div className='fc-image-wrapper fc-skeleton'>
-              <img className='fc-skeleton' src='/img/sk.png'/>
+              <img className='fc-skeleton' src={skeletonImgPath}/>
             </div>
           }
           {!name && scriptLoaded && 
             <div className='fc-image-wrapper fc-skeleton'>
-              <img className='fc-skeleton' src='/img/sk.png'/>
+              <img className='fc-skeleton' src={skeletonImgPath}/>
             </div>
           }
           {name && !scriptLoaded &&
             <div className='fc-image-wrapper'>
-              <img className='' src={`/img/${isMobile ? 'mobile' : 'desktop'}.png`}/>
+              <img className='' src={skeletonImgPath}/>
             </div>
           }
           {avoidRTR && 
             <div className='fc-image-wrapper'>
-              <img className='' src={`/img/${isMobile ? 'mobile' : 'desktop'}.png`}/>
+              <img className='' src={skeletonImgPath}/>
             </div>
           }
       </div>

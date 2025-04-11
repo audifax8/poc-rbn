@@ -3,8 +3,8 @@ import { useState, memo } from 'react';
 
 
 import './index.css';
-import { ICAMap, IAttributeValue } from '../../../../constants';
 import { useConfigure } from '../../../../providers/configure-core';
+import { IAttributeValue, ICAMap } from '../../../../interfaces';
 
 //import AttributeSelector from '../attribute-selector';
 

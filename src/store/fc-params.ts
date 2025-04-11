@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { RBN_CUSTOMER_ID, WAYFARER_ID } from '../constants';
 
 export const fcParamsSlice = createSlice({
   name: 'fcParams',
@@ -11,10 +12,10 @@ export const fcParamsSlice = createSlice({
       environment: 'prod',
       productBaseUrl: '//cdn-development.fluidconfigure.com/static/assets/prod/prod/customers/c1581/configureHtml/products/p_22956/',
       shouldSkipCache: false,
-      product: 22956,
-      productId: 22956,
-      customer: 1581,
-      customerId: 1581,
+      product: WAYFARER_ID,
+      productId: WAYFARER_ID,
+      customer: RBN_CUSTOMER_ID,
+      customerId: RBN_CUSTOMER_ID,
       workflow: 'prod',
       apiKey: 'LUX-Ray-Ban-8taOhSR5AFyjt9tfxU'
     }

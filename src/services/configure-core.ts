@@ -1,9 +1,9 @@
-import { ICAMap } from '../constants';
 import {
   IConfigureService,
   IProduct,
   IConfigurableAttribute,
-  IAttributeValue
+  IAttributeValue,
+  ICAMap
 } from '../interfaces';
 
 export class ConfigureService implements IConfigureService {

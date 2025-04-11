@@ -1,4 +1,3 @@
-import { ICAMap } from "../constants";
 declare global {
   interface Window {
     rtrViewerMV: any;
@@ -33,6 +32,32 @@ export interface IProduct {
   name: string;
   id: number;
   vendorId: string;
+};
+
+export interface IAttributeValue {
+  active: boolean;
+  selected: boolean;
+  selectable: boolean;
+  id: number;
+  url?: string;
+  vendorId: string;
+  alias: string;
+  name: string;
+  metadata: any[];
+};
+
+export enum RenderType {
+  '3D' = '3D',
+  '2D' = '2D',
+};
+
+export interface ICAMap {
+  id: number | null;
+  alias: string;
+  icon: string;
+  //ca: IConfigurableAttribute | null;
+  selectedAvId: number | null;
+  skeleton?: boolean;
 };
 
 export interface IAttributeValue {
